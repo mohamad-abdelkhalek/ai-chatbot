@@ -72,3 +72,13 @@ body {
 .chat-header .close-chatbot:hover {
     background: #3d39ac;
 }
+
+.chat-body {
+    padding: 25px 22px;
+    display: flex;
+    gap: 20px;
+    height: 460px;
+    margin-bottom: 82px;
+    overflow-y: auto;
+    flex-direction: column;
+}
