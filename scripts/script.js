@@ -45,6 +45,8 @@ const generateBotResponse = async (incomingMessageDiv) => {
       messageElement.innerText = apiResponseText;
     } catch (error) {
       console.log(error);
+    } finally {
+        incomingMessageDiv.classList.remove("thinking");
     }
 }
 
