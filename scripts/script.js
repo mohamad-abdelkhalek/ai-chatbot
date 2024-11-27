@@ -50,11 +50,15 @@ const generateBotResponse = async (incomingMessageDiv) => {
       // Extract and display bot's response text
       const apiResponseText = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, "$1").trim();
       messageElement.innerText = apiResponseText;
+      
     } catch (error) {
+      // Handle error in API response
       console.log(error);
       messageElement.innerText = error.message;
       messageElement.style.color = "#ff0000";
     } finally {
+        // Reset user's file data, removing thinking indicator and scroll chat to buttom
+        userData.file = {};
         incomingMessageDiv.classList.remove("thinking");
         chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
     }
