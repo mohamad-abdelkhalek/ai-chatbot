@@ -55,21 +55,32 @@
             Hey there 👋 <br />
             How can I help you today?
           </div>
-        </div>    
+        </div>
       </div>
 
       <!-- Chatbot Footer-->
       <div class="chat-footer">
         <form action="#" class="chat-form">
-          <textarea placeholder="Message..." class="message-input" required></textarea>
+          <textarea
+            placeholder="Message..."
+            class="message-input"
+            required
+          ></textarea>
           <div class="chat-controls">
             <button type="button" class="material-symbols-rounded">
               sentiment_satisfied
             </button>
-            <button type="button" class="material-symbols-rounded">
-              attach_file
-            </button>
-            <button id="send-message" type="submit" class="material-symbols-rounded send-message">
+            <div class="file-upload-wrapper">
+              <input type="file" accept="images/*" id="file-input" hidden>
+              <button type="button" id="file-upload" class="material-symbols-rounded">
+                attach_file
+              </button>
+            </div>
+            <button
+              id="send-message"
+              type="submit"
+              class="material-symbols-rounded send-message"
+            >
               arrow_upward
             </button>
           </div>

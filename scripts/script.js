@@ -1,6 +1,8 @@
 const chatBody = document.querySelector(".chat-body");
 const messageInput = document.querySelector(".message-input");
 const sendMessageButton = document.querySelector("#send-message");
+const fileInput = document.querySelector("#file-input");
+
 
 // API setup
 const API_KEY = "AIzaSyCNs5D0Zh28dc8R2oW_v9OrmHoqq1XckD8";
@@ -8,7 +10,12 @@ const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-
 key=${API_KEY}`;
 
 const userData = {
-    message: null
+    message: null,
+
+    file: {
+      data: null,
+      mime_type: null
+    }
 };
 
 // Create message element with dynamic classes and return it 
@@ -105,4 +112,27 @@ messageInput.addEventListener("keydown", (e) => {
     }
 });
 
-sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e))
+// Handle file input change
+fileInput.addEventListener("change", () => {
+  const file = fileInput.files[0];
+  if(!file) return;
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const base64String = e.target.result.split(",")[1];
+
+    // Store file data in userData
+    userData.file = {
+        data: base64String,
+        mime_type: file.type
+    }
+
+    console.log(userData);
+  }
+
+  reader.readAsDataURL(file);
+});
+
+sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e));
+
+document.querySelector("#file-upload").addEventListener("click", () => fileInput.click());
