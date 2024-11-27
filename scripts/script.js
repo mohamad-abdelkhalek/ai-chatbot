@@ -2,6 +2,7 @@ const chatBody = document.querySelector(".chat-body");
 const messageInput = document.querySelector(".message-input");
 const sendMessageButton = document.querySelector("#send-message");
 const fileInput = document.querySelector("#file-input");
+const fileUploadWrapper = document.querySelector(".file-upload-wrapper");
 
 
 // API setup
@@ -50,7 +51,7 @@ const generateBotResponse = async (incomingMessageDiv) => {
       // Extract and display bot's response text
       const apiResponseText = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, "$1").trim();
       messageElement.innerText = apiResponseText;
-      
+
     } catch (error) {
       // Handle error in API response
       console.log(error);
@@ -118,13 +119,15 @@ messageInput.addEventListener("keydown", (e) => {
     }
 });
 
-// Handle file input change
+// Handle file input change and preview the selected file
 fileInput.addEventListener("change", () => {
   const file = fileInput.files[0];
   if(!file) return;
 
   const reader = new FileReader();
   reader.onload = (e) => {
+    fileUploadWrapper.querySelector("img").src = e.target.result;
+    fileUploadWrapper.classList.add("file-uploaded");
     const base64String = e.target.result.split(",")[1];
 
     // Store file data in userData
