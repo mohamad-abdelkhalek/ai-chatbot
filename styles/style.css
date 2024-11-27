@@ -130,6 +130,12 @@ body {
     border-radius: 13px 13px 3px 13px;
 }
 
+.chat-body .user-message .attachment {
+    width: 50%;
+    margin-top: -7px;
+    border-radius: 13px 3px 13px 13px;
+}
+
 .chat-body .bot-message .thinking-indicator {
     display: flex;
     gap: 4px;
