@@ -254,15 +254,28 @@ body {
     position: relative;
 }
 
-.chat-form .file-upload-wrapper img {
+.chat-form .file-upload-wrapper :where(img, button) {
     position: absolute;
-    display: none;
+}
+
+.chat-form .file-upload-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
 }
 
-.chat-form .file-upload-wrapper.file-uploaded img {
+.chat-form .file-upload-wrapper .file-cancel {
+    color: #ff0000;
+    background: #fff;
+}
+
+.chat-form .file-upload-wrapper :where(img, .file-cancel),
+.chat-form .file-upload-wrapper.file-uploaded .file-upload {
+    display: none;
+}
+
+.chat-form .file-upload-wrapper.file-uploaded img,
+.chat-form .file-upload-wrapper.file-uploaded:hover .file-cancel {
     display: block;
 }
