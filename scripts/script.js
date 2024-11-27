@@ -36,7 +36,7 @@ const generateBotResponse = async (incomingMessageDiv) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             contents: [{
-                parts:[{text: userData.message}]
+                parts:[{text: userData.message}, ...(userData.file.data ? [{ inline_data: userData.file }] : [])]
                 }]
         })
     }
