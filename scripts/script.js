@@ -127,7 +127,7 @@ fileInput.addEventListener("change", () => {
         mime_type: file.type
     }
 
-    console.log(userData);
+    fileInput.value = "";
   }
 
   reader.readAsDataURL(file);
