@@ -3,6 +3,7 @@ const messageInput = document.querySelector(".message-input");
 const sendMessageButton = document.querySelector("#send-message");
 const fileInput = document.querySelector("#file-input");
 const fileUploadWrapper = document.querySelector(".file-upload-wrapper");
+const fileCancelButton = document.querySelector("#file-cancel");
 
 
 // API setup
@@ -70,6 +71,7 @@ const handleOutgoingMessage = (e) => {
     e.preventDefault();
     userData.message = messageInput.value.trim();
     messageInput.value = "";
+    fileUploadWrapper.classList.remove("file-uploaded");
 
     // Create and display user message
     const messageContent = `<div class="message-text"></div>
@@ -140,6 +142,12 @@ fileInput.addEventListener("change", () => {
   }
 
   reader.readAsDataURL(file);
+});
+
+// Cancel file upload
+fileCancelButton.addEventListener("click", () => {
+  userData.file = {};
+  fileUploadWrapper.classList.remove("file-uploaded");
 });
 
 sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e));
