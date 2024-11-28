@@ -150,13 +150,14 @@ fileCancelButton.addEventListener("click", () => {
   fileUploadWrapper.classList.remove("file-uploaded");
 });
 
+// Initialize emoji picker
 const picker = new EmojiMart.Picker({
   theme: "light",
   skinTonePosition: "none",
   previewPosition: "none"
 });
 
-
+document.querySelector(".chat-form").appendChild(picker);
 
 sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e));
 
