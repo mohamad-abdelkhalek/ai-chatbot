@@ -288,5 +288,6 @@ em-emoji-picker {
     width: 100%;
     max-width: 350px;
     max-height: 330px;
+    visibility: hidden;
     transform: translateX(-50%);
 }
