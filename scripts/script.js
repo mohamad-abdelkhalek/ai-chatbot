@@ -22,6 +22,8 @@ const userData = {
     }
 };
 
+const initialInputHeight = messageInput.scrollHeight;
+
 // Create message element with dynamic classes and return it 
 const createMessageElement = (content, ...classes) => {
     const div = document.createElement("div");
@@ -74,6 +76,7 @@ const handleOutgoingMessage = (e) => {
     userData.message = messageInput.value.trim();
     messageInput.value = "";
     fileUploadWrapper.classList.remove("file-uploaded");
+    messageInput.dispatchEvent(new Event("input"));
 
     // Create and display user message
     const messageContent = `<div class="message-text"></div>
@@ -118,9 +121,17 @@ const handleOutgoingMessage = (e) => {
 messageInput.addEventListener("keydown", (e) => {
     const userMessage = e.target.value.trim();
 
-    if(e.key === "Enter" && userMessage) {
+    if(e.key === "Enter" && userMessage && !e.shiftKey && window.innerWidth > 768) {
         handleOutgoingMessage(e);
     }
+});
+
+// Adjust input field height dynamically
+messageInput.addEventListener("input", () => {
+  messageInput.style.height = `${initialInputHeight}px`;
+  messageInput.style.height = `${messageInput.scrollHeight}px`;
+  document.querySelector(".chat-form").style.borderRadius = messageInput.scrollHeight > 
+  initialInputHeight ? "15px" : "32px";
 });
 
 // Handle file input change and preview the selected file
