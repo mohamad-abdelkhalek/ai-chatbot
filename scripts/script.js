@@ -150,6 +150,14 @@ fileCancelButton.addEventListener("click", () => {
   fileUploadWrapper.classList.remove("file-uploaded");
 });
 
+const picker = new EmojiMart.Picker({
+  theme: "light",
+  skinTonePosition: "none",
+  previewPosition: "none"
+});
+
+
+
 sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e));
 
 document.querySelector("#file-upload").addEventListener("click", () => fileInput.click());
