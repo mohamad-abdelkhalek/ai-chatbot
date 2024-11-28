@@ -26,6 +26,11 @@ body {
     cursor: pointer;
     border-radius: 50%;
     background: #5350c4;
+    transition: all 0.2s ease;
+}
+
+body.show-chatbot .chatbot-toggler {
+    transform: rotate(90deg);
 }
 
 .chatbot-toggler span {
@@ -33,8 +38,13 @@ body {
     position: absolute;
 }
 
+body.show-chatbot .chatbot-toggler span:first-child,
 .chatbot-toggler span:last-child {
     opacity: 0;
+}
+
+body.show-chatbot .chatbot-toggler span:last-child {
+    opacity: 1;
 }
 
 .chatbot-popup {
@@ -46,6 +56,8 @@ body {
     overflow: hidden;
     border-radius: 15px;
     opacity: 0;
+    transform: scale(0.2);
+    transform-origin: bottom right;
     pointer-events: none;
     box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
                 0 32px 64px -48px rgba(0, 0, 0, 0.5);
@@ -55,6 +67,7 @@ body {
 body.show-chatbot .chatbot-popup {
     opacity: 1;
     pointer-events: auto;
+    transform: scale(1);
 }
 
 .chat-header {
