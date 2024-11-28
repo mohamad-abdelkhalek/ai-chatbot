@@ -35,5 +35,34 @@ cd ai-chatbot
 
 - Open index.html in your browser to interact with the chatbot.
 
+## 📜 API Integration
+
+- This project uses the Gemini AI API to process and respond to user inputs. Key integration steps include:
+  - Sending user messages to the API endpoint.
+  - Receiving intelligent responses from the Gemini AI engine.
+  - Dynamically updating the chat interface with responses.
+ 
+### Example API Call (simplified):
+
+```javascript
+fetch('https://api.gemini.example.com/chat', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${GEMINI_API_KEY}`
+  },
+  body: JSON.stringify({ message: userInput })
+})
+  .then(response => response.json())
+  .then(data => displayMessage(data.reply))
+  .catch(error => console.error('Error:', error));
+```
+
+## 🛠️ Future Enhancements
+
+- Add support for voice input and output.
+- Implement user-specific conversation history.
+- Integrate with a database for persistent data storage.
+
 
 
