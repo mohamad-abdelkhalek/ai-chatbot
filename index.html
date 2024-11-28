@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
+    <button id="chatbot-toggler">
+      <span class="material-symbols-rounded">mode_comment</span>
+      <span class="material-symbols-rounded">close</span>
+    </button>
+
     <div class="chatbot-popup">
       <!-- Chatbot Header-->
       <div class="chat-header">
@@ -67,7 +72,11 @@
             required
           ></textarea>
           <div class="chat-controls">
-            <button type="button" id="emoji-picker" class="material-symbols-rounded">
+            <button
+              type="button"
+              id="emoji-picker"
+              class="material-symbols-rounded"
+            >
               sentiment_satisfied
             </button>
             <div class="file-upload-wrapper">
