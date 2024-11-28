@@ -19,7 +19,7 @@ An interactive and intelligent chatbot built using **HTML**, **CSS**, and **Java
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/ai-chatbot.git
+git clone https://github.com/mohamad-abdelkhalek/ai-chatbot.git
 cd ai-chatbot
 ```
 ### Set Up Gemini API
