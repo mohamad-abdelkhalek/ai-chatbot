@@ -291,3 +291,7 @@ em-emoji-picker {
     visibility: hidden;
     transform: translateX(-50%);
 }
+
+body.show-emoji-picker em-emoji-picker {
+    visibility: visible;
+}
